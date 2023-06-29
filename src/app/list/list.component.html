@@ -1,0 +1,29 @@
+
+
+
+<div class="todolist">
+    <h3>List of Works Todo:  {{isPopup}}  </h3>
+    <p class="error-info"></p>
+    <ul>
+        <li #listItem *ngFor="let todo of list"  [class.completed]="todo.completed"  >{{todo.title}} 
+            <div class="tools">
+                <button class="complete" [class.completed]="todo.completed" (click)="onComplete(todo.title)"  ><i class="fas fa-check"></i></button>
+
+                <button class="edit"  (click)="onEditClick(todo.title, editInput)">EDIT</button>
+
+                <button class="delete" (click)="onDelete(todo.title)"><i class="fas fa-times"></i></button>
+            </div>
+        </li>
+    </ul>
+
+    <div class="popup" [style.display]="isPopup ? 'block' : 'none'  ">
+        <h3>Edit your todo:</h3>
+        <div class="popup-body">
+            <p class="popup-info"></p>
+            <input #editInput type="text" class="popup-input" placeholder="Wprowadź nową treść zadania...">
+            <button class="popup-btn accept" (click)="onUpdateEdit(editInput.value)" >Update</button>
+            <button class="popup-btn cancel" (click)="onCancelEdit()" >Cancel</button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,5 @@
+<div class="header">
+    <h1>ToDo List</h1>
+    <input type="text" class="todo-input" placeholder="Write your todo list here..."  #newItem>
+    <button class="btn-add"  (click)="addNewItem(newItem.value)" (click)="newItem.value = ''" >Add</button>
+</div>
